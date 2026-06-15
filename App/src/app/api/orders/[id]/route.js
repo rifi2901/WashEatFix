@@ -1,0 +1,32 @@
+import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
+import { updateOrderStatus } from '@/lib/db';
+
+export async function PATCH(request, { params }) {
+  try {
+    const cookieStore = await cookies();
+    const session = cookieStore.get('admin_session')?.value;
+
+    if (!session || session !== 'kbt_session_token_2026') {
+      return NextResponse.json({ error: 'Akses ditolak. Silakan login sebagai admin.' }, { status: 401 });
+    }
+
+    const { id } = await params;
+    const body = await request.json();
+    const { status } = body;
+
+    if (!status) {
+      return NextResponse.json({ error: 'Status harus diisi' }, { status: 400 });
+    }
+
+    const updated = await updateOrderStatus(id, status);
+    if (!updated) {
+      return NextResponse.json({ error: 'Pesanan tidak ditemukan' }, { status: 404 });
+    }
+
+    return NextResponse.json(updated);
+  } catch (error) {
+    console.error('API Orders PATCH Error:', error);
+    return NextResponse.json({ error: 'Gagal memperbarui status pesanan' }, { status: 500 });
+  }
+}

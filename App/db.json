@@ -1,0 +1,163 @@
+{
+  "bookings": [
+    {
+      "id": "BKG-001",
+      "customerName": "Budi Santoso",
+      "phone": "081234567890",
+      "plateNumber": "B 1234 ABC",
+      "vehicleType": "Car (Toyota Avanza)",
+      "serviceType": "Carwash (Premium)",
+      "scheduleDate": "2026-05-28",
+      "scheduleTime": "09:00",
+      "status": "Finished",
+      "queueNumber": 1,
+      "createdAt": "2026-05-27T14:14:23.248Z"
+    },
+    {
+      "id": "BKG-002",
+      "customerName": "Rian Hidayat",
+      "phone": "082345678901",
+      "plateNumber": "D 9999 XYZ",
+      "vehicleType": "Motorcycle (Honda Vario)",
+      "serviceType": "Service Bengkel (Ganti Oli + Filter)",
+      "scheduleDate": "2026-05-28",
+      "scheduleTime": "10:00",
+      "status": "Waiting",
+      "queueNumber": 2,
+      "createdAt": "2026-05-27T16:14:23.248Z"
+    },
+    {
+      "id": "BKG-003",
+      "customerName": "Siti Aminah",
+      "phone": "083456789012",
+      "plateNumber": "B 5678 DEF",
+      "vehicleType": "Car (Honda Jazz)",
+      "serviceType": "Bundling (Service Berkala + Wash)",
+      "scheduleDate": "2026-05-28",
+      "scheduleTime": "11:00",
+      "status": "In Progress",
+      "queueNumber": 3,
+      "createdAt": "2026-05-27T17:14:23.248Z"
+    },
+    {
+      "id": "BKG-004",
+      "customerName": "Ahmad Fauzi",
+      "phone": "084567890123",
+      "plateNumber": "F 4321 GH",
+      "vehicleType": "Motorcycle (Yamaha NMax)",
+      "serviceType": "Carwash (Regular)",
+      "scheduleDate": "2026-05-28",
+      "scheduleTime": "13:00",
+      "status": "Queue",
+      "queueNumber": 4,
+      "createdAt": "2026-05-27T18:14:23.248Z"
+    },
+    {
+      "id": "BKG-005",
+      "customerName": "xdwcdc",
+      "phone": "081370645314",
+      "plateNumber": "B 1234 AC",
+      "vehicleType": "Car (MPV/Large)",
+      "serviceType": "Workshop Service (Ganti Oli + Filter)",
+      "scheduleDate": "2026-12-12",
+      "scheduleTime": "10:00",
+      "status": "Finished",
+      "queueNumber": 1,
+      "createdAt": "2026-05-27T18:41:50.879Z"
+    },
+    {
+      "id": "BKG-006",
+      "customerName": "xdwcdc",
+      "phone": "081370645314",
+      "plateNumber": "B 1234 TR",
+      "vehicleType": "Car (MPV/Large)",
+      "serviceType": "Workshop Service (Ganti Oli + Filter)",
+      "scheduleDate": "2026-12-12",
+      "scheduleTime": "08:00",
+      "status": "Finished",
+      "queueNumber": 1,
+      "createdAt": "2026-05-27T19:04:03.576Z"
+    },
+    {
+      "id": "BKG-007",
+      "customerName": "xdwcdc",
+      "phone": "081370645314",
+      "plateNumber": "B 1234 TR",
+      "vehicleType": "Motorcycle (Under 250cc)",
+      "serviceType": "Bundling (Service Berkala + Wash)",
+      "scheduleDate": "2026-12-12",
+      "scheduleTime": "08:00",
+      "status": "In Progress",
+      "queueNumber": 1,
+      "createdAt": "2026-05-27T19:04:36.684Z"
+    },
+    {
+      "id": "BKG-008",
+      "customerName": "Patruddd",
+      "phone": "081370645314",
+      "plateNumber": "B 123 TR",
+      "vehicleType": "Car (SUV/Sedan)",
+      "serviceType": "Carwash (Premium)",
+      "scheduleDate": "2026-12-12",
+      "scheduleTime": "14:00",
+      "status": "Washing",
+      "queueNumber": 1,
+      "createdAt": "2026-05-27T21:04:19.527Z"
+    },
+    {
+      "id": "BKG-009",
+      "customerName": "ana",
+      "phone": "87537827926",
+      "plateNumber": "B 1 R",
+      "vehicleType": "Car (SUV/Sedan)",
+      "serviceType": "Workshop Service (Ganti Oli + Filter)",
+      "scheduleDate": "2026-12-12",
+      "scheduleTime": "14:00",
+      "status": "Queue",
+      "queueNumber": 5,
+      "createdAt": "2026-05-28T13:06:59.593Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-001",
+      "bookingId": "BKG-002",
+      "customerName": "Rian Hidayat",
+      "plateNumber": "D 9999 XYZ",
+      "items": [
+        {
+          "menuId": "m1",
+          "name": "Es Kopi Susu Aren",
+          "price": 18000,
+          "quantity": 1
+        },
+        {
+          "menuId": "m5",
+          "name": "Roti Bakar Cokelat Keju",
+          "price": 15000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 33000,
+      "status": "Delivered",
+      "createdAt": "2026-05-27T17:44:23.248Z"
+    },
+    {
+      "id": "ORD-002",
+      "bookingId": "BKG-008",
+      "customerName": "Patruddd",
+      "plateNumber": "B 123 TR",
+      "items": [
+        {
+          "menuId": "m1",
+          "name": "Es Kopi Susu Aren",
+          "price": 18000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 18000,
+      "status": "Pending",
+      "createdAt": "2026-05-27T21:05:17.016Z"
+    }
+  ]
+}
