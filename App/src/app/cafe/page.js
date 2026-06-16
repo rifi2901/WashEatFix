@@ -43,22 +43,21 @@ function CafeContent() {
     setOrderSuccess(null);
 
     try {
-      // Ambil seluruh booking dan cari yang sesuai id
-      const response = await fetch('/api/bookings');
-      const bookings = await response.json();
-      
-      const found = bookings.find(b => b.id.toUpperCase() === id.trim().toUpperCase());
-      if (!found) {
-        throw new Error('Kode Booking tidak terdaftar di sistem kami.');
+      // Menggunakan endpoint per-ID (publik, tidak perlu auth admin)
+      const response = await fetch(`/api/bookings/${encodeURIComponent(id.trim().toUpperCase())}`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Kode Booking tidak terdaftar di sistem kami.');
       }
       
       // Validasi status pengerjaan
       const allowedStatuses = ['In Progress', 'Washing', 'Waiting'];
-      if (!allowedStatuses.includes(found.status)) {
-        throw new Error(`Pemesanan Cafe tidak diizinkan untuk kendaraan dengan status "${found.status}". Layanan cafe hanya untuk pelanggan yang kendaraannya sedang dikerjakan.`);
+      if (!allowedStatuses.includes(data.status)) {
+        throw new Error(`Pemesanan Cafe tidak diizinkan untuk kendaraan dengan status "${data.status}". Layanan cafe hanya untuk pelanggan yang kendaraannya sedang dikerjakan.`);
       }
 
-      setBooking(found);
+      setBooking(data);
     } catch (err) {
       setError(err.message);
     } finally {

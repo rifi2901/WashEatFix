@@ -2,6 +2,21 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { updateBookingStatus, getBookingById } from '@/lib/db';
 
+// GET: Ambil data booking berdasarkan ID (publik, tidak perlu login admin)
+export async function GET(request, { params }) {
+  try {
+    const { id } = await params;
+    const booking = await getBookingById(id);
+    if (!booking) {
+      return NextResponse.json({ error: 'Booking tidak ditemukan' }, { status: 404 });
+    }
+    return NextResponse.json(booking);
+  } catch (error) {
+    console.error('API Booking GET by ID Error:', error);
+    return NextResponse.json({ error: 'Gagal memuat data booking' }, { status: 500 });
+  }
+}
+
 export async function PATCH(request, { params }) {
   try {
     const cookieStore = await cookies();

@@ -20,7 +20,17 @@ let cachedDb = global.mongoDb || null;
 
 async function connectToDatabase() {
   const uri = process.env.MONGODB_URI;
-  if (!uri) return null; // Jika tidak ada URI, return null (gunakan fallback lokal)
+  if (!uri) {
+    // Di Vercel/production, filesystem bersifat read-only sehingga fallback db.json tidak bisa digunakan.
+    // Jika MONGODB_URI tidak di-set, berikan error yang jelas.
+    if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
+      throw new Error(
+        'MONGODB_URI tidak ditemukan di environment variables. ' +
+        'Untuk deployment production/Vercel, Anda HARUS mengatur MONGODB_URI di Vercel Dashboard → Project Settings → Environment Variables.'
+      );
+    }
+    return null; // Jika tidak ada URI di mode lokal, gunakan fallback db.json
+  }
 
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
