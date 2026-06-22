@@ -15,6 +15,7 @@ export async function POST(request) {
         value: 'kbt_session_token_2026',
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
         path: '/',
         maxAge: 3600 * 24 // 1 Day
       });

@@ -116,6 +116,19 @@
       "status": "Queue",
       "queueNumber": 5,
       "createdAt": "2026-05-28T13:06:59.593Z"
+    },
+    {
+      "id": "BKG-010",
+      "customerName": "aa",
+      "phone": "12345",
+      "plateNumber": "B 1 R",
+      "vehicleType": "Car (SUV/Sedan)",
+      "serviceType": "Workshop Service (Ganti Oli + Filter)",
+      "scheduleDate": "2026-06-24",
+      "scheduleTime": "08:00",
+      "status": "Queue",
+      "queueNumber": 1,
+      "createdAt": "2026-06-22T17:18:44.151Z"
     }
   ],
   "orders": [

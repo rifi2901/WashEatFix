@@ -52,6 +52,7 @@ export async function POST(request) {
     return NextResponse.json(newBooking, { status: 201 });
   } catch (error) {
     console.error('API Bookings POST Error:', error);
-    return NextResponse.json({ error: 'Gagal membuat booking' }, { status: 500 });
+    const message = error.message || 'Gagal membuat booking';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
